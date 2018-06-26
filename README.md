@@ -14,17 +14,22 @@ Files:
 /* -- PROGRAM DESCRIPTION ----------------------------------------------------*/
 
 Program:    cache-sim.c
+
 Title:      Simple Cache Simulation
+
 Author:     Phillip Yommer
+
 Course:     CPSC 3300
+
 Problem:    Programming Assignment 2
+
 Date:       04/23/2018
 
-Purpose:
 
-     Simulates the cache operations for a specified benchmark output
-     file and determines the cache hits, misses, and corresponding hit
-     ratio.
+Purpose:
+Simulates the cache operations for a specified benchmark output
+file and determines the cache hits, misses, and corresponding hit
+ratio.
 
 Compile:
 
@@ -42,67 +47,67 @@ Options:
 
 Benchmark File:
 
-     - The filename used in the command line is used to read a sequence
-       of cache references logged from a benchmark on a program. This
-       file contains the cache addresses of the benchmark, and this
-       program simulates the references for the desired cache
-       specifications to determine the cache hit ratio of the benchmark
-       on the specified cache.
+- The filename used in the command line is used to read a sequence
+of cache references logged from a benchmark on a program. This
+file contains the cache addresses of the benchmark, and this
+program simulates the references for the desired cache
+specifications to determine the cache hit ratio of the benchmark
+on the specified cache.
 
-     - The file "sc10k.txt" contains a snippet of the originak "sc10k"
-       file which contained a 10k sequence of cache references. This can
-       be used for testing.
+- The file "sc10k.txt" contains a snippet of the originak "sc10k"
+file which contained a 10k sequence of cache references. This can
+be used for testing.
 
 Cache Initialization:
 
-     - The cache size, number of banks, and line size can be specified
-       via the option flags ('-s', '-b', '-l') in the command line
-       arguments, followed by the integer value corresponding to the
-       specified option.
+- The cache size, number of banks, and line size can be specified
+via the option flags ('-s', '-b', '-l') in the command line
+arguments, followed by the integer value corresponding to the
+specified option.
 
-                             default       specified
-             ----------------------------------------
-             cache size      32 [KB]         s
-             # of banks      8               b
-             line size       64 [bytes]      l
+                     default       specified
+     ----------------------------------------
+     cache size      32 [KB]         s
+     # of banks      8               b
+     line size       64 [bytes]      l
 
-     - The bank size, number of lines per bank, and the total number of
-       lines in the cache are calculated from the specified or default
-       cache specification values.
+- The bank size, number of lines per bank, and the total number of
+lines in the cache are calculated from the specified or default
+cache specification values.
 
-             ----------------------------------------
-             # of lines  = cache size / line size
-             bank size   = cache size / # of banks
-             lines/bank  = bank size / line size
+     ----------------------------------------
+     # of lines  = cache size / line size
+     bank size   = cache size / # of banks
+     lines/bank  = bank size / line size
 
-     - The cache specifications are used to initialize a simulated cache
-       of s size, b-way set associative, with l size lines, and s/(b*l)
-       lines per bank (set), with all values initialized to zero.
+- The cache specifications are used to initialize a simulated cache
+of s size, b-way set associative, with l size lines, and s/(b*l)
+lines per bank (set), with all values initialized to zero.
 
 Cache Simulation:
 
-     - The program reads each line of the benchmark file until an EOF and
-       simulates each reference on the cache to by updating the cache
-       data and control lines. For each reference, the program determines
-       if it would be a cache hit or cache miss, and increments the
-       appropriate counters.
+- The program reads each line of the benchmark file until an EOF and
+simulates each reference on the cache to by updating the cache
+data and control lines. For each reference, the program determines
+if it would be a cache hit or cache miss, and increments the
+appropriate counters.
 
-     - Once the EOF is read, the final cache contents are displayed and
-       the number of references, number of hits, and the hit ratio are
-       displayed.
+- Once the EOF is read, the final cache contents are displayed and
+the number of references, number of hits, and the hit ratio are
+displayed.
 
 Notes:
 
-     - The line size can alternatively be specified by preceding the
-       desired line size integer with a '-' in the command line
-       arguments (i.e.: ./cache-sim -16).
+- The line size can alternatively be specified by preceding the
+desired line size integer with a '-' in the command line
+arguments (i.e.: ./cache-sim -16).
 
-     - All specfied cache specification values are required to be some
-       power of two, such that log_2(value) is an integer, otherwise
-       the default value is used.
+- All specfied cache specification values are required to be some
+power of two, such that log_2(value) is an integer, otherwise
+the default value is used.
 
-     - The default cache is a 32 KB 8-way set-associative cache with
-       64 lines per bank (set) and a line size of 64 bytes.
+- The default cache is a 32 KB 8-way set-associative cache with
+64 lines per bank (set) and a line size of 64 bytes.
 
 
 /* -- PROGRAM MODIFICATION ---------------------------------------------------*/
