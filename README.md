@@ -1,5 +1,3 @@
-/* -- SIMPLE CACHE SIMULATOR -------------------------------------------------*/
-
 Simple cache simulator program.
 
 Files:
@@ -11,23 +9,17 @@ Files:
     README.md   - this readme file for the cache simulator project
 
 
-/* -- PROGRAM DESCRIPTION ----------------------------------------------------*/
-
 Program:    cache-sim.c
-
 Title:      Simple Cache Simulation
-
 Author:     Phillip Yommer
-
 Course:     CPSC 3300
-
 Problem:    Programming Assignment 2
-
 Date:       04/23/2018
 
 
 Purpose:
-Simulates the cache operations for a specified benchmark output
+
+- Simulates the cache operations for a specified benchmark output
 file and determines the cache hits, misses, and corresponding hit
 ratio.
 
@@ -65,20 +57,20 @@ via the option flags ('-s', '-b', '-l') in the command line
 arguments, followed by the integer value corresponding to the
 specified option.
 
-                     default       specified
-     ----------------------------------------
-     cache size      32 [KB]         s
-     # of banks      8               b
-     line size       64 [bytes]      l
+                         default       specified
+         ----------------------------------------
+         cache size      32 [KB]         s
+         # of banks      8               b
+         line size       64 [bytes]      l
 
 - The bank size, number of lines per bank, and the total number of
 lines in the cache are calculated from the specified or default
 cache specification values.
 
-     ----------------------------------------
-     # of lines  = cache size / line size
-     bank size   = cache size / # of banks
-     lines/bank  = bank size / line size
+         ----------------------------------------
+         # of lines  = cache size / line size
+         bank size   = cache size / # of banks
+         lines/bank  = bank size / line size
 
 - The cache specifications are used to initialize a simulated cache
 of s size, b-way set associative, with l size lines, and s/(b*l)
@@ -110,7 +102,7 @@ the default value is used.
 64 lines per bank (set) and a line size of 64 bytes.
 
 
-/* -- PROGRAM MODIFICATION ---------------------------------------------------*/
+Program Modification:
 
     This software is a modification of Mark Smotherman's "bsim.c"
     demonstration source code for the project described in "project.txt",
@@ -130,7 +122,7 @@ the default value is used.
     output: cache stats
 
 
-/* -- PROJECT ASSIGNMENT -----------------------------------------------------*/
+Project Assignment:
 
     CPSC 3300 - Spring 2018 - Project 3 Assignment
 
