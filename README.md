@@ -1,4 +1,4 @@
-#Simple cache simulator program.
+# Simple cache simulator program.
 
 Files:
         
@@ -9,7 +9,7 @@ Files:
     sc10k.txt   - a test snippet of a benchmark file of cache references
     README.md   - this readme file for the cache simulator project
 
-#Project Description:
+# Project Description:
 
 Program:    cache-sim.c
 Title:      Simple Cache Simulation
@@ -102,7 +102,7 @@ the default value is used.
 - The default cache is a 32 KB 8-way set-associative cache with
 64 lines per bank (set) and a line size of 64 bytes.
 
-#Program Modification:
+# Program Modification:
 
     This software is a modification of Mark Smotherman's "bsim.c"
     demonstration source code for the project described in "project.txt",
@@ -121,7 +121,7 @@ the default value is used.
     input: 32-bit addresses (read as hex values)
     output: cache stats
 
-#Project Assignment:
+# Project Assignment:
 
     CPSC 3300 - Spring 2018 - Project 3 Assignment
 
