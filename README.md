@@ -11,17 +11,12 @@ Files:
 
 # Project Description:
 
-Program:    cache-sim.c
-
-Title:      Simple Cache Simulation
-
-Author:     Phillip Yommer
-
-Course:     CPSC 3300
-
-Problem:    Programming Assignment 2
-
-Date:       04/23/2018
+    Program:    cache-sim.c
+    Title:      Simple Cache Simulation
+    Author:     Phillip Yommer
+    Course:     CPSC 3300
+    Problem:    Programming Assignment 2
+    Date:       04/23/2018
 
 Purpose:
 
