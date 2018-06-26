@@ -115,13 +115,12 @@
  ******************************************************************************
  *
  */
-/*-------------------------------PREPROCESSOR---------------------------------*/
-/* -- include libraries -- */
+// included libraries
 #include <stdlib.h>
 #include <stdio.h>
-#include "csim.h"
+#include "csim.h"       // cache simulator constants and functions
 
-/*-------------------------------MAIN-FUNCTION--------------------------------*/
+// main program
 int main(int argc, char *argv[])
 {
     printf("cache-sim.c - simple cache simulation\n\n");
@@ -189,7 +188,6 @@ int main(int argc, char *argv[])
         free(line[i].tag);
     }
     free(line);
-
     return 0;
 }
 
