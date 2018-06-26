@@ -1,2 +1,0 @@
-# csim - simple cache simulator
-
