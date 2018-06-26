@@ -1,0 +1,60 @@
+CPSC 3300 - Spring 2018 - Project 3 Assignment
+
+  Due date:         before midnight on the night of Friday, April 27
+  Submission:       use handin.cs.clemson.edu to turn in a source file
+  Late penalty:     10% off per day late, up to five days
+  Tools needed:     gcc (or other language)
+  Concepts needed:  set associative caches
+
+  This is an individual assignment.
+
+
+A simple cache simulator is given (bsim.c) that reads in byte addresses
+from a file and prints the cache miss count and hit rate. The simulator
+uses a 64 byte line size for an 8-way set-associative cache with total
+size of 32 KiB.
+
+The input will be redirected on the command line from a test file. The
+test file will consist of 8-digit hex values, one per line, that are
+32-bit memory addresses taken from the memory access trace for a
+benchmark program. For example, the first five lines of the test file
+sc10k are:
+
+    00002020
+    00002024
+    ffffe860
+    00002028
+    0000202c
+
+You task is to revise the simulator to accept line size values of 4, 8,
+16, 32, and 64 as a command line parameter. The value will be specified
+as -4, etc., so that the simulator can be run with command lines of
+
+	./a.out -4 < sc10k
+	./a.out -8 < sc10k
+	./a.out -16 < sc10k
+
+etc., where < is input file redirection and sc10k is the name of the
+input file. (The simulator must conform to this usage pattern to receive
+full credit. E.g., you must not change the program to read the test file
+name as a command line parameter nor to prompt the user to enter the file
+name.)
+
+Line sizes other than 4, 8, 16, 32, and 64 are invalid and will not be
+tested.
+
+Regardless of the line size value chosen, the simulated cache must remain
+as 32 KiB in total size. (That is, the choice of a 32 byte line size must
+not somehow result in simulating only a 16 KiB cache.) This allows the
+line size to be studied as an independent design choice.
+
+For the test files gcc10k, sc10k, and swm10k, the miss counts are:
+
+	line	----- trace file -----
+	size	gcc10k	sc10k	swm10k
+	4	1803	775	1951
+	8	1017	431	1052
+	16	613	257	600
+	32	364	161	354
+	64	214	102	214
+
