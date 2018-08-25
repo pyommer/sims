@@ -46,19 +46,23 @@ struct line
 /*---------------------------FUNCTION-PROTYTYPES------------------------------*/
 // parser functions
 int get_value(int mode, char *argv);
+
 // initialization functions
 int *init_array(int cols);
 void init_spec(int *values, struct spec *spec);
 void read_spec(struct spec *spec, int argc, char *argv[]);
 void init_data(struct data *data);
 struct line *init_line(int banks, int size);
+
 // search functions
 int hit_search(struct spec spec, struct data data, struct line *line);
 int rep_search(struct spec spec, struct data data, struct line *line);
 int old_search(struct spec spec, struct data data, struct line *line);
+
 // misc math functions
 int pow_2(int power);
 int log_2(int value);
+
 // printer functions
 void print_stats(int hits, int misses);
 void print_spec(struct spec spec);
@@ -115,8 +119,13 @@ int get_value(int mode, char *argv)
  */
 int *init_array(int cols)
 {
-    int i;
     int *array = malloc(cols*sizeof(int));
+    if (array == NULL)
+    {
+    	printf("ERROR! Failed to allocate array of size %d.\n", cols);
+    	exit(-1);
+    }
+    int i;
     for (i=0; i<cols; i++)
         array[i] = 0;
     return array;
@@ -238,6 +247,11 @@ void init_data(struct data *data)
 struct line *init_line(int banks, int size)
 {
     struct line *line = malloc(banks*size*sizeof(struct line));
+    if (line == NULL)
+    {
+    	printf("ERROR! Failed to allocate line of size %d.\n", banks*size);
+    	exit(-1);
+    }
     int i;
     for (i=0; i<banks; i++)
     {
@@ -336,7 +350,13 @@ int old_search(struct spec spec, struct data data, struct line *line)
  */
 int pow_2(int power)
 {
-    return (power > 0) ? 2*pow_2(power-1) : ((power == 0) ? 1 : -1);
+	if (power < 0)
+		return -1;
+	int result = 1;
+	int i;
+	for (i=power; i>0; i--)
+		result *= 2;
+    return result;
 }
 
 /** log_2()
@@ -352,7 +372,16 @@ int pow_2(int power)
  */
 int log_2(int value)
 {
-    return (value > 1) ? log_2(value/2) + 1 : ((value == 1) ? 0 : -1);
+	if (value < 1)
+		return -1;
+	int result = value/2;
+	int i=0;
+	while (result > 0)
+	{
+		result /= 2;
+		i++;
+	}
+    return i;
 }
 
 /* -- printer functions ----------------------------------------------------- */
@@ -408,9 +437,9 @@ void print_spec(struct spec spec)
 void print_data(struct data data)
 {
     printf("access counter:\t%5d\n", data.access);
-    printf("32-bit address:\t%5d\n", data.address);
-    printf("address tag:\t%5d\n", data.tag);
-    printf("address index:\t%5d\n", data.index);
+    printf("32-bit address:\t    0x%08x\n", data.address);
+    printf("address tag:\t    0x%x\n", data.tag);
+    printf("address index:\t    0x%x\n", data.index);
     printf("hits counter:\t%5d\n", data.hits);
     printf("miss counter:\t%5d\n", data.misses);
     printf("current bank:\t%5d\n\n", data.bank);
