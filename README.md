@@ -47,7 +47,7 @@ program simulates the references for the desired cache
 specifications to determine the cache hit ratio of the benchmark
 on the specified cache.
 
-- The file "sc10k.txt" contains a snippet of the originak "sc10k"
+- The file "sc10k.txt" contains a snippet of the original "sc10k"
 file which contained a 10k sequence of cache references. This can
 be used for testing.
 
