@@ -17,7 +17,7 @@
  *
  * Compile:
  *
- *      gcc -Wall cache-sim.c -o cache-sim
+ *      gcc cache-sim.c -o cache-sim
  *
  * Run:
  *
@@ -171,6 +171,7 @@ int main(int argc, char *argv[])
             line[data.bank].tag[data.index] = data.tag;
             line[data.bank].lastused[data.index] = data.access;
         }
+        print_data(data);
     }
 
     // display stats
