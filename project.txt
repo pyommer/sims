@@ -30,9 +30,9 @@ You task is to revise the simulator to accept line size values of 4, 8,
 16, 32, and 64 as a command line parameter. The value will be specified
 as -4, etc., so that the simulator can be run with command lines of
 
-	./a.out -4 < sc10k
-	./a.out -8 < sc10k
-	./a.out -16 < sc10k
+    ./a.out -4 < sc10k
+    ./a.out -8 < sc10k
+    ./a.out -16 < sc10k
 
 etc., where < is input file redirection and sc10k is the name of the
 input file. (The simulator must conform to this usage pattern to receive
@@ -50,11 +50,11 @@ line size to be studied as an independent design choice.
 
 For the test files gcc10k, sc10k, and swm10k, the miss counts are:
 
-	line	----- trace file -----
-	size	gcc10k	sc10k	swm10k
-	4	1803	775	1951
-	8	1017	431	1052
-	16	613	257	600
-	32	364	161	354
-	64	214	102	214
+    line    ----- trace file -----
+    size    gcc10k   sc10k   swm10k
+      4      1803     775     1951
+      8      1017     431     1052
+     16       613     257      600
+     32       364     161      354
+     64       214     102      214
 

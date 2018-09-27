@@ -122,10 +122,10 @@ int *init_array(int cols)
     int *array = malloc(cols*sizeof(int));
     if (array == NULL)
     {
-    	printf("ERROR! Failed to allocate array of size %d.\n", cols);
-    	exit(-1);
+        printf("ERROR! Failed to allocate array of size %d.\n", cols);
+        exit(-1);
     }
-    int i;
+    int i=0;
     for (i=0; i<cols; i++)
         array[i] = 0;
     return array;
@@ -249,8 +249,8 @@ struct line *init_line(int banks, int size)
     struct line *line = malloc(banks*size*sizeof(struct line));
     if (line == NULL)
     {
-    	printf("ERROR! Failed to allocate line of size %d.\n", banks*size);
-    	exit(-1);
+        printf("ERROR! Failed to allocate line of size %d.\n", banks*size);
+        exit(-1);
     }
     int i;
     for (i=0; i<banks; i++)
@@ -282,7 +282,7 @@ struct line *init_line(int banks, int size)
  */
 int hit_search(struct spec spec, struct data data, struct line *line)
 {
-    int i = 0;
+    int i=0;
     for(i=0; i<spec.banks; i++)
         if(line[i].valid[data.index] && (data.tag == line[i].tag[data.index]))
             return i;
@@ -304,7 +304,7 @@ int hit_search(struct spec spec, struct data data, struct line *line)
  */
 int rep_search(struct spec spec, struct data data, struct line *line)
 {
-    int i = 0;
+    int i=0;
     for(i=0; i<spec.banks; i++)
         if(!line[i].valid[data.index])
             return i;
@@ -327,7 +327,7 @@ int rep_search(struct spec spec, struct data data, struct line *line)
 int old_search(struct spec spec, struct data data, struct line *line)
 {
     int bank = 0;
-    int i = 0;
+    int i=0;
     for(i=1; i<spec.banks; i++)
         if(line[i].lastused[data.index] < line[bank].lastused[data.index])
             bank = i;
@@ -350,12 +350,12 @@ int old_search(struct spec spec, struct data data, struct line *line)
  */
 int pow_2(int power)
 {
-	if (power < 0)
-		return -1;
-	int result = 1;
-	int i;
-	for (i=power; i>0; i--)
-		result *= 2;
+    if (power < 0)
+        return -1;
+    int result = 1;
+    int i=0;
+    for (i=0; i<power; i++)
+        result *= 2;
     return result;
 }
 
@@ -372,15 +372,15 @@ int pow_2(int power)
  */
 int log_2(int value)
 {
-	if (value < 1)
-		return -1;
-	int result = value/2;
-	int i=0;
-	while (result > 0)
-	{
-		result /= 2;
-		i++;
-	}
+    if (value < 1)
+        return -1;
+    int result = value/2;
+    int i=0;
+    while (result > 0)
+    {
+        result /= 2;
+        i++;
+    }
     return i;
 }
 
@@ -468,7 +468,7 @@ void print_usage(void)
     printf(" with a 32 byte line size, of the benchmark 'sc10k'.\n\n");
 }
 
-/** print_usage()
+/** print_error()
  *
  * Purpose: prints the error message for the specified mode and argument.
  *
